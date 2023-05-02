@@ -26,8 +26,10 @@ class SusProductDetailView(generic.DetailView):
 
 
 def recommend(request):
-    sustainable_product = Sustainable_Products.objects.create(product_name = request.POST['sus_product_name'],
-                                                              recommend_reason = request.POST['recommend_reason'],
-                                                              reference_link = request.POST['reference_link'])
+    sustainable_product = Sustainable_Products.objects.create(
+                                                            product_image = request.FILES['sus_product_photo'],
+                                                            product_name = request.POST['sus_product_name'],
+                                                            recommend_reason = request.POST['recommend_reason'],
+                                                            reference_link = request.POST['reference_link'])
 
     return HttpResponseRedirect(reverse("main:recommend_result", args=(sustainable_product.id,)))

@@ -1,0 +1,13 @@
+<!-- Python Code -->
+
+MEDIA_ROOT = BASE_DIR / 'mediafiles'
+
+MEDIA_URL = '/medias/'
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+{% static 'main/images/Sample.jpg' %}
+
+<!-- Python Code -->
+
+<p>No Sustainable Products Uploaded Yet</p>

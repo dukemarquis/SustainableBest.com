@@ -154,3 +154,6 @@ CSRF_TRUSTED_ORIGINS = ['https://web-production-c1fe.up.railway.app/']
 # During development/for this tutorial you can instead set just the base URL
 # CSRF_TRUSTED_ORIGINS = ['https://*.railway.app']
 
+MEDIA_ROOT = BASE_DIR / "main/media"
+
+MEDIA_URL = "/media/"

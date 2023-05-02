@@ -30,7 +30,7 @@
                     <div class="row mt-3 justify-content-center">
                         <div class="col-6">
                             <div class="card">
-                                <img class="card-img-top" src="{% static 'main/images/Sample.jpg' %}">
+                                <img class="card-img-top" src="{{ sus_product.product_image.url }}">
                                 <div class="card-body">
                                     <h5 class="card-title">Sustainable Item Name</h5>
                                     <p class="card-text">{{ sus_product.product_name }}</p>
@@ -44,7 +44,19 @@
                     </div>
                 {% endfor %}
             {% else %}
-                <p>No Sustainable Products Uploaded Yet</p>
+                <div class="px-4 py-5 my-5 text-center">
+                    <h1 class="display-5 fw-bold text-body-emphasis mb-4">No available Sustainable Product Here Yet!</h1>
+                    <div class="col-lg-10 mx-auto">
+                    <p class="lead text-start mb-4">
+                        Get your minds busy right now to support protecting the environment around you by recommend
+                        products which you think would be defined sustainable to this universe! It's an easy and necessary
+                        step to which everybody can get involved immediately!
+                    </p>
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <button type="button" class="btn btn-primary btn-lg px-4 gap-3" data-bs-toggle="modal" data-bs-target="#recommend_sus_product">Recommend Sustainable Product!</button>
+                    </div>
+                    </div>
+                </div>
             {% endif %}
         </div>
 
@@ -53,7 +65,7 @@
         <div class="modal fade" id="recommend_sus_product" tabindex="-1" aria-labelledby="recommend_modal_title" aria-hidden="true">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
-                <form action="{% url 'main:recommend' %}" method="post">
+                <form action="{% url 'main:recommend' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="recommend_modal_title">Recommend Sustainable Products Around You!</h1>
