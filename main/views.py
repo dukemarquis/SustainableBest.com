@@ -6,7 +6,6 @@ from django.views.decorators.csrf import csrf_protect
 
 from .models import Sustainable_Products
 
-@csrf_protect
 class IndexView(generic.ListView):
     template_name = "main/index.html"
     context_object_name = "sus_product_list"
